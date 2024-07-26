@@ -1,4 +1,4 @@
-fn reverse_parentheses(s: String) -> String {
+pub fn reverse_parentheses(s: String) -> String {
   let mut i = 0;
   let mut j = s.len() - 1;
   let mut result = s.chars().collect::<Vec<char>>();
@@ -34,12 +34,13 @@ fn reverse_parentheses(s: String) -> String {
   result.iter().collect()
 }
 
-fn main() {
-  use std::time::Instant;
-  let s = "ta()usw((((a))))";
-  let now = Instant::now();
-  let result = reverse_parentheses(s.into());
-  let elapsed = now.elapsed();
-  println!("{}", result);
-  println!("elapsed: {:?}", elapsed);
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn test() {
+    let s = "ta()usw((((a))))";
+    assert_eq!(reverse_parentheses(s.into()), "tausw)".to_owned())
+  }
 }
