@@ -9,6 +9,15 @@ pub fn min_operations(logs: Vec<String>) -> i32 {
   }
   output
 }
+fn main() {
+  use std::time::Instant;
+  let logs = ["d1/","../","../","../"].map(|s| s.to_string()).to_vec();
+  let now = Instant::now();
+  let result = min_operations(logs);
+  let elapsed = now.elapsed();
+  println!("{}", result);
+  println!("Elapsed: {:.2?}", elapsed);
+}
 
 #[cfg(test)]
 mod tests {

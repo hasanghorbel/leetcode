@@ -34,6 +34,16 @@ pub fn reverse_parentheses(s: String) -> String {
   result.iter().collect()
 }
 
+fn main() {
+  use std::time::Instant;
+  let s = "ta()usw((((a))))";
+  let now = Instant::now();
+  let result = reverse_parentheses(s.into());
+  let elapsed = now.elapsed();
+  println!("{}", result);
+  println!("Elapsed: {:.2?}", elapsed);
+}
+
 #[cfg(test)]
 mod tests {
   use super::*;
